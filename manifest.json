@@ -1,0 +1,17 @@
+{
+  "manifest_version": 2,
+  "name": "canvas-to-img",
+  "description": "Convert canvas elements to img",
+  "version": "0.1.0",
+  "applications": {
+    "gecko": {
+      "id": "canvas-to-img@wanko.cc"
+    }
+  },
+  "permissions": ["activeTab", "<all_urls>"],
+  "browser_action": {
+    "default_icon": "icons/canvas-to-img-48.png",
+    "default_title": "Convert canvas elements to img",
+    "default_popup": "popup/canvas_list.html"
+  }
+}

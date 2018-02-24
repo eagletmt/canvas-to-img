@@ -1,0 +1,17 @@
+{
+  "name": "canvas-to-img",
+  "version": "0.1.0",
+  "description": "Convert canvas elements to img",
+  "main": "index.js",
+  "repository": "https://github.com/eagletmt/canvas-to-img",
+  "author": "Kohei Suzuki <eagletmt@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {
+    "ts-loader": "^3.5.0",
+    "typescript": "^2.7.2",
+    "web-ext": "^2.4.0",
+    "web-ext-types": "^2.0.1",
+    "webpack": "^3.11.0"
+  }
+}
