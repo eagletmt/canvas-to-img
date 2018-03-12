@@ -1,12 +1,12 @@
 document.addEventListener('DOMContentLoaded', () => {
-  let root = document.getElementById('popup-canvas-list');
+  let root = document.getElementById('popup-canvas-list')!;
   root.appendChild(document.createTextNode('Loading canvas elements...'));
 
-  browser.tabs.executeScript(null, {file: '/dist/content.js'}).then(() => {
+  browser.tabs.executeScript(undefined, {file: '/dist/content.js'}).then(() => {
     return browser.tabs.query({active: true, currentWindow: true});
   }).then((tabs) => {
-    return browser.tabs.sendMessage(tabs[0].id, {});
-  }).then((result: QueryResult) => {
+    return browser.tabs.sendMessage(tabs[0].id!, {}) as Promise<QueryResult>;
+  }).then((result) => {
     renderCanvasList(root, result.canvasElements);
   }).catch((e) => {
     renderErrorMessage(root, e);
