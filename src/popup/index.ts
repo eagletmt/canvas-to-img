@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-  let root = document.getElementById('popup-canvas-list')!;
+  const root = document.getElementById('popup-canvas-list')!;
   root.appendChild(document.createTextNode('Loading canvas elements...'));
 
   browser.tabs.executeScript(undefined, {file: '/dist/content.js'}).then(() => {
@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     renderCanvasList(root, result.canvasElements);
   }).catch((e) => {
     renderErrorMessage(root, e);
-  })
+  });
 });
 
 function clearChildren(root: HTMLElement) {
@@ -24,10 +24,10 @@ function renderCanvasList(root: HTMLElement, canvasElements: CanvasElement[]) {
   if (canvasElements.length === 0) {
     root.appendChild(document.createTextNode('No canvas elements'));
   } else {
-    for (let canvas of canvasElements) {
-      let div = document.createElement('div');
-      let h3 = document.createElement('h3');
-      let img = document.createElement('img');
+    for (const canvas of canvasElements) {
+      const div = document.createElement('div');
+      const h3 = document.createElement('h3');
+      const img = document.createElement('img');
       h3.appendChild(document.createTextNode(canvas.title));
       img.style.maxHeight = '480px';
       img.style.maxWidth = '640px';
@@ -41,7 +41,7 @@ function renderCanvasList(root: HTMLElement, canvasElements: CanvasElement[]) {
 
 function renderErrorMessage(root: HTMLElement, error: Error) {
   clearChildren(root);
-  let h3 = document.createElement('h3');
+  const h3 = document.createElement('h3');
   h3.appendChild(document.createTextNode('Failed to load canvas elements'));
   root.appendChild(h3);
   root.appendChild(document.createTextNode(error.toString()));

@@ -1,8 +1,11 @@
 WEB_EXT = node_modules/.bin/web-ext
 WEBPACK = node_modules/.bin/webpack
+TSLINT = node_modules/.bin/tslint
 
 lint:
 	$(WEB_EXT) lint
+tslint:
+	$(TSLINT) --project . src/**/*.ts
 run:
 	$(WEB_EXT) run --verbose
 build:
